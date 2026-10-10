@@ -5,12 +5,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Next 15.2.x still uses `experimental.turbo` (turbopack moved to
   // top-level `turbopack` in later versions).
-  experimental: {
-    turbo: {
-      // Next/Turbopack can get confused when multiple lockfiles exist.
-      // Pin the Turbopack root to this Next.js app folder.
-      root: path.resolve(__dirname),
-    },
+  turbopack: {
+    // Pin the Turbopack root to this Next.js app folder.
+    root: path.resolve(__dirname),
   },
 
   async headers() {
