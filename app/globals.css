@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600&display=swap");
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ping { 75%, 100% { transform: scale(1.8); opacity: 0; } }
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-30px) rotate(5deg) scale(1.05); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-50px) translateX(30px) rotate(-5deg); }
+}
+@keyframes float-3 {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-80px) scale(0.9) rotate(10deg); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+:root {
+  --font-syne: "Syne", system-ui, sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0e0f11;
+  color: #e8e9f0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #282935;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3b4a;
+}
+
+/* CodeMirror overrides */
+.cm-editor {
+  height: 100%;
+  font-family: var(--font-jetbrains) !important;
+  font-size: 13px !important;
+}
+.cm-scroller {
+  overflow: auto;
+  padding: 12px 0;
+}
+.cm-gutters {
+  background: #0e0f11 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+.cm-lineNumbers .cm-gutterElement {
+  color: #5a5b6a !important;
+  padding-right: 16px !important;
+  min-width: 50px !important;
+}
+.cm-activeLine {
+  background: rgba(124, 110, 245, 0.06) !important;
+}
+.cm-activeLineGutter {
+  background: rgba(124, 110, 245, 0.06) !important;
+}
+.cm-selectionBackground {
+  background: rgba(124, 110, 245, 0.2) !important;
+}
